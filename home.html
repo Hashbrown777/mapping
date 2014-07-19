@@ -15,17 +15,17 @@
 		   <script>
          window.onload = function(){
             var map = L.mapbox.map('map', 'bomrmit.ip3iel8k').setView([-37.81, 144.96], 2);
-     
-            L.tileLayer('',{
-               attribution: 'First map created using Leaflet',
-               maxZoom: 18
-            }).addTo(map);
-
-            var layer = L.tileLayer.wms("http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi", {
-               layers: 'nexrad-n0r-900913',
+             
+            var layer = L.tileLayer.wms("http://115.146.84.143:8080/thredds/wms/datafiles/sample/real_correlation.nc", {
+               layers: 'correlation',
                format: 'image/png',   
                transparent: true,
                attribution: "Sample weather data"
+            }).addTo(map);
+             
+             L.tileLayer('',{
+               attribution: 'First map created using Leaflet',
+               maxZoom: 18
             }).addTo(map);
          }
          </script>
